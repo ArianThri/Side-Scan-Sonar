@@ -1,0 +1,69 @@
+{
+  "status": "pass",
+  "purpose": "single-seed full/no-acoustic/no-geometric/neither grounded ablation",
+  "primary_final_metric": "real-test mAP50_95",
+  "best_condition_by_test_mAP50_95": "full",
+  "ranking": [
+    {
+      "rank": 1,
+      "condition": "full",
+      "test_mAP50_95": 0.2692418769947771,
+      "test_mAP50": 0.4227801372174291,
+      "test_precision": 0.3736357737114781,
+      "test_recall": 0.45634920634920634
+    },
+    {
+      "rank": 2,
+      "condition": "no_geometric",
+      "test_mAP50_95": 0.1897236853379338,
+      "test_mAP50": 0.3503728737712821,
+      "test_precision": 0.34978551798811797,
+      "test_recall": 0.3988095238095238
+    },
+    {
+      "rank": 3,
+      "condition": "no_acoustic",
+      "test_mAP50_95": 0.12526022965878372,
+      "test_mAP50": 0.31656253639410886,
+      "test_precision": 0.8687077104858201,
+      "test_recall": 0.30158730158730157
+    },
+    {
+      "rank": 4,
+      "condition": "neither",
+      "test_mAP50_95": 0.022242125550959686,
+      "test_mAP50": 0.07196645276235662,
+      "test_precision": 0.0021124674251343264,
+      "test_recall": 0.626984126984127
+    }
+  ],
+  "same_initial_weights": true,
+  "same_protocol": true,
+  "real_validation_and_test_only": true,
+  "selection_and_interpretation": "Checkpoints were selected using validation only. Test metrics rank final outcomes and were not used for hyperparameter tuning. This comparison uses one deterministic seed and should not be presented as a multi-seed uncertainty estimate.",
+  "condition_reports": {
+    "full": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/ablations/label_010_v1/detectors/full/final_report.json",
+    "no_acoustic": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/ablations/label_010_v1/detectors/no_acoustic/final_report.json",
+    "no_geometric": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/ablations/label_010_v1/detectors/no_geometric/final_report.json",
+    "neither": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/ablations/label_010_v1/detectors/neither/final_report.json"
+  },
+  "aggregate_summary_csv": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/ablations/label_010_v1/detectors/comparison_summary.csv",
+  "per_class_summary_csv": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/ablations/label_010_v1/detectors/per_class_summary.csv",
+  "factorial_effects": {
+    "mAP50": {
+      "acoustic_with_geometry": 0.10621760082332021,
+      "geometry_with_acoustic": 0.07240726344614695,
+      "acoustic_without_geometry": 0.2784064210089255,
+      "geometry_without_acoustic": 0.24459608363175223,
+      "factorial_interaction": -0.17218882018560527
+    },
+    "mAP50_95": {
+      "acoustic_with_geometry": 0.14398164733599336,
+      "geometry_with_acoustic": 0.07951819165684329,
+      "acoustic_without_geometry": 0.1674815597869741,
+      "geometry_without_acoustic": 0.10301810410782404,
+      "factorial_interaction": -0.023499912450980747
+    }
+  },
+  "factorial_effects_interpretation": "Signed single-seed test-score contrasts. Positive values favour the named component; they are descriptive effects, not confidence intervals or significance tests."
+}

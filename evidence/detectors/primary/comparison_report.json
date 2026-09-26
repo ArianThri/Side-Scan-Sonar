@@ -1,0 +1,61 @@
+{
+  "status": "pass",
+  "purpose": "single-seed controlled 10% label-level YOLO11n comparison",
+  "primary_final_metric": "real-test mAP50_95",
+  "best_condition_by_test_mAP50_95": "standard_diffusion",
+  "ranking": [
+    {
+      "rank": 1,
+      "condition": "standard_diffusion",
+      "test_mAP50_95": 0.22865283050079005,
+      "test_mAP50": 0.3734664605416996,
+      "test_precision": 0.7519135285514637,
+      "test_recall": 0.34920634920634924
+    },
+    {
+      "rank": 2,
+      "condition": "traditional",
+      "test_mAP50_95": 0.1727668537656183,
+      "test_mAP50": 0.3134163418896923,
+      "test_precision": 0.7625113348883037,
+      "test_recall": 0.30158730158730157
+    },
+    {
+      "rank": 3,
+      "condition": "gan",
+      "test_mAP50_95": 0.15070386727101778,
+      "test_mAP50": 0.3426333778914161,
+      "test_precision": 0.47826033382005684,
+      "test_recall": 0.42592070982845315
+    },
+    {
+      "rank": 4,
+      "condition": "grounded_diffusion",
+      "test_mAP50_95": 0.12153649808053237,
+      "test_mAP50": 0.2857795725320404,
+      "test_precision": 0.5393930130769911,
+      "test_recall": 0.2638888888888889
+    },
+    {
+      "rank": 5,
+      "condition": "real_only",
+      "test_mAP50_95": 0.017405496397981616,
+      "test_mAP50": 0.04541821736371924,
+      "test_precision": 0.002384027089520284,
+      "test_recall": 0.5595238095238094
+    }
+  ],
+  "same_initial_weights": true,
+  "same_protocol": true,
+  "real_validation_and_test_only": true,
+  "selection_and_interpretation": "Checkpoints were selected using validation only. Test metrics rank final outcomes and were not used for hyperparameter tuning. This comparison uses one deterministic seed and should not be presented as a multi-seed uncertainty estimate.",
+  "condition_reports": {
+    "real_only": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/detectors/label_010_v1/real_only/final_report.json",
+    "traditional": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/detectors/label_010_v1/traditional/final_report.json",
+    "gan": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/detectors/label_010_v1/gan/final_report.json",
+    "standard_diffusion": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/detectors/label_010_v1/standard_diffusion/final_report.json",
+    "grounded_diffusion": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/detectors/label_010_v1/grounded_diffusion/final_report.json"
+  },
+  "aggregate_summary_csv": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/detectors/label_010_v1/comparison_summary.csv",
+  "per_class_summary_csv": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/detectors/label_010_v1/per_class_summary.csv"
+}

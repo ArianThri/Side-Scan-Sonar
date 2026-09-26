@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "purpose": "common-random-number grounded ablation synthesis",
+  "condition": "full",
+  "components": {
+    "geometric": true,
+    "range": true,
+    "speckle": true
+  },
+  "generated": 26,
+  "source_count": 26,
+  "common_seed_rule": "40042 + zero-based ordered source index",
+  "guidance_scale": 1.0,
+  "source_strength": 0.3,
+  "inference_steps": 50,
+  "checkpoint": "models/diffusion/grounded/label_010_v1/best_model",
+  "checkpoint_sha256": "5be69f805cc3ed5a7803e56a28e1f1c80157be5d18261b106f75c1f810920105",
+  "exact_pixel_copies": 0,
+  "mean_absolute_source_difference_255": 15.235682169596354,
+  "minimum_absolute_source_difference_255": 6.871897379557292,
+  "maximum_absolute_source_difference_255": 25.32806396484375
+}

@@ -1,0 +1,134 @@
+schema_version: 2
+status: executed_label_010_v1_summary
+seed: 42
+
+shared_generative_preprocessing:
+  input_manifest: data/processed/generative_256_v1/manifest.csv
+  image_size: 256
+  channels: 3
+  classes: [aircraft, human, ship]
+  resize: aspect_preserving_lanczos_letterbox
+  padding: black
+  tensor_range: [-1.0, 1.0]
+
+traditional:
+  rotation_degrees: [-1.5, 1.5]
+  scale: [0.99, 1.01]
+  translation_pixels: [-3.0, 3.0]
+  intensity_gain: [0.94, 1.06]
+  gamma: [0.96, 1.04]
+  additive_noise: false
+
+gan:
+  name: resnet18_conditional_encoder_decoder_patchgan
+  transfer_source: torchvision_resnet18_imagenet1k_v1
+  generator:
+    encoder: resnet18
+    pretrained_encoder: true
+    decoder_channels: [256, 128, 64, 32]
+    class_embedding_dim: 64
+    latent_noise_dim: 64
+    residual_scale: 0.35
+    output_activation: tanh
+  discriminator:
+    architecture: conditional_patchgan
+    spectral_normalisation: true
+  losses:
+    adversarial: hinge
+    reconstruction_l1_weight: 10.0
+    feature_matching_weight: 1.0
+  optimiser:
+    name: AdamW
+    learning_rate_generator: 0.0001
+    learning_rate_discriminator: 0.0001
+    betas: [0.0, 0.99]
+    weight_decay: 0.0001
+  training:
+    maximum_epochs: 200
+    batch_size: 4
+    gradient_accumulation_steps: 1
+    mixed_precision: fp16_amp
+    gradient_clip_norm: 5.0
+    early_stopping_patience_epochs: 25
+    executed_epochs: 56
+
+diffusion:
+  name: class_conditional_image_guided_ddpm
+  pretrained_model: google/ddpm-celebahq-256
+  pretrained_domain: optical_face_images
+  transfer_policy: load_compatible_unet_weights_and_train_new_class_embedding
+  architecture:
+    channels: [128, 128, 256, 256, 512, 512]
+    class_embeddings: 4
+    gradient_checkpointing: true
+  training_scheduler:
+    name: DDPMScheduler
+    num_train_timesteps: 1000
+    beta_schedule: linear
+    prediction_type: epsilon
+  conditioning:
+    type: classifier_free_guidance
+    null_class_index: 3
+    condition_dropout_probability: 0.10
+  optimiser:
+    name: AdamW
+    learning_rate: 0.00001
+    betas: [0.9, 0.999]
+    weight_decay: 0.01
+    warmup_steps: 200
+    schedule: cosine
+  training:
+    configured_ceiling_steps: 20000
+    batch_size: 1
+    gradient_accumulation_steps: 4
+    effective_batch_size: 4
+    validation_every_steps: 500
+    validation_images: 54
+    mixed_precision: fp16_amp
+    gradient_clip_norm: 1.0
+    standard_executed_steps: 2500
+    standard_selected_step: 1500
+    grounded_executed_steps: 2000
+    grounded_selected_step: 1000
+  sampling:
+    scheduler: DDIMScheduler
+    inference_steps: 50
+    guidance_scale: 1.0
+    source_strength: 0.30
+    selected_using: fixed_real_validation_partition
+
+grounding:
+  geometric:
+    component: target_shadow_consistency
+    weight: 0.10
+  acoustic_range:
+    component: recoverable_cross_track_intensity_profile
+    unavailable_navigation_parameters_are_not_inferred: true
+    weight: 0.05
+  acoustic_speckle:
+    component: log_domain_signal_dependent_residual
+    epsilon: 0.00392156862745098
+    weight: 0.05
+
+synthetic_annotation_validation:
+  phase_response_minimum: 0.10
+  phase_shift_maximum_pixels: 8.0
+  target_ncc_minimum: 0.25
+  target_edge_ratio: [0.35, 2.85]
+  target_contrast_polarity_preserved: true
+
+detector:
+  model: yolo11n.pt
+  image_size: 640
+  optimiser: AdamW
+  initial_learning_rate: 0.001
+  batch_size: 8
+  maximum_epochs: 100
+  patience: 20
+  workers: 4
+  amp: true
+  deterministic: true
+  pretrained_weights_identical_across_conditions: true
+  detector_augmentation_identical_across_conditions: true
+  validation_and_test_real_only: true
+

@@ -1,0 +1,47 @@
+{
+  "status": "pass",
+  "purpose": "freeze validation-selected sampling controls before synthesis",
+  "selected_configuration": {
+    "configuration": "strength_0.30_cfg_1.0",
+    "guidance_scale": 1.0,
+    "strength": 0.3,
+    "inference_steps": 50
+  },
+  "selected_validation_metrics": {
+    "guidance_scale": 1.0,
+    "strength": 0.3,
+    "samples": 12,
+    "approved": 12,
+    "approval_rate": 1.0,
+    "minimum_phase_response": 0.4695337854209356,
+    "maximum_phase_shift_pixels": 0.14851698186915419,
+    "mean_minimum_target_ncc": 0.8344678084055582,
+    "minimum_target_ncc": 0.7123768925666809,
+    "minimum_target_edge_ratio": 0.7176402807235718,
+    "maximum_target_edge_ratio": 1.3283294439315796,
+    "polarity_pass_rate": 1.0,
+    "mean_absolute_source_difference_255": 15.384265475802954,
+    "minimum_absolute_source_difference_255": 7.3860015869140625,
+    "maximum_absolute_source_difference_255": 31.069676717122395,
+    "exact_pixel_copies": 0
+  },
+  "visual_review_performed": true,
+  "visual_review_note": "Paired aircraft, human and ship previews showed that strength 0.30 with CFG 1.0 best preserved coherent sonar texture, target shape and shadow structure. Higher strengths and CFG values progressively introduced horizontal banding, colour fringing and target deformation; CFG 5.0 at strength 0.45 was visibly unacceptable despite passing the automatic localisation gate.",
+  "selection_rationale": [
+    "all 12 fixed real-validation candidates passed the unchanged annotation-transfer gates",
+    "zero exact pixel copies and non-trivial source variation were verified",
+    "the selected setting had the strongest target/alignment preservation among eligible settings",
+    "higher strength and CFG previews showed increasing banding, colour fringing, or target deformation",
+    "strength 0.60 was excluded because no configuration passed all 12 candidates"
+  ],
+  "shared_control": {
+    "standard_diffusion": true,
+    "grounded_diffusion": true,
+    "same_guidance_scale": true,
+    "same_source_strength": true,
+    "same_inference_steps": true
+  },
+  "selection_data": "real group-aware validation partition only; test partition untouched",
+  "evaluation_report": "results/full/label_010_v1/diffusion_sampling_selection/evaluation_report.json",
+  "configuration_metrics": "results/full/label_010_v1/diffusion_sampling_selection/configuration_metrics.csv"
+}

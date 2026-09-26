@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "method": "grounded_diffusion",
+  "expected": 26,
+  "generated": 26,
+  "equal_budget_count_pass": true,
+  "exact_pixel_copies": 0,
+  "mean_absolute_source_difference_255": 15.246174934582834,
+  "minimum_absolute_source_difference_255": 6.925262451171875,
+  "maximum_absolute_source_difference_255": 25.286763509114582,
+  "guidance_scale": 1.0,
+  "source_strength": 0.3,
+  "inference_steps": 50,
+  "checkpoint": "models/diffusion/grounded/label_010_v1/best_model",
+  "checkpoint_sha256": "5be69f805cc3ed5a7803e56a28e1f1c80157be5d18261b106f75c1f810920105",
+  "sampling_selection_report": "results/full/label_010_v1/diffusion_sampling_selection/selection_report.json"
+}

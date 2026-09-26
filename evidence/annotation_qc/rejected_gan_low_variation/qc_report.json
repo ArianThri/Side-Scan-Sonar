@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "purpose": "pilot annotation-transfer gate",
+  "candidate_count": 26,
+  "approved": 26,
+  "rejected": 0,
+  "thresholds": {
+    "phase_response_min": 0.1,
+    "phase_shift_max_pixels": 8.0,
+    "target_ncc_min": 0.25,
+    "target_edge_ratio": [
+      0.35,
+      2.85
+    ],
+    "contrast_polarity_preserved": true
+  }
+}

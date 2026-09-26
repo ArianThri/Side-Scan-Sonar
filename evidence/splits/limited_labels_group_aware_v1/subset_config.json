@@ -1,0 +1,17 @@
+{
+  "method": "nested image-level class-aware sampling",
+  "source_train_file": "data/splits/group_aware_v1/train.txt",
+  "levels_percent": [
+    10,
+    25,
+    50,
+    100
+  ],
+  "seed": 42,
+  "class_counts": {
+    "aircraft": 40,
+    "human": 24,
+    "ship": 185
+  },
+  "assumption": "10, 25, 50 and 100 percent were selected because the methodology did not state label fractions."
+}

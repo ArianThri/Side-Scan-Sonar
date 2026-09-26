@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "output": "results/ablations/label_010_v1/figures/common_source_ablation_preview.png",
+  "rows": 6,
+  "columns": [
+    "Real source",
+    "Full",
+    "No acoustic",
+    "No geometric",
+    "Neither"
+  ],
+  "sources": [
+    "000012",
+    "000034",
+    "000101",
+    "000112",
+    "000143",
+    "000150"
+  ],
+  "selection": "first two ordered sources per class; no test images"
+}

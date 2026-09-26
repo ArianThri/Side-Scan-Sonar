@@ -1,0 +1,19 @@
+# Install torch==2.7.0 and torchvision==0.22.0 from the CUDA 12.8 PyTorch
+# index first, as documented in README.md.
+Pillow==12.3.0
+pandas==3.0.5
+scikit-learn==1.9.0
+PyYAML==6.0.3
+numpy==2.5.2
+scipy==1.18.0
+matplotlib==3.11.1
+opencv-python==5.0.0.93
+diffusers==0.39.0
+transformers==5.15.0
+accelerate==1.14.0
+safetensors==0.8.0
+ultralytics==8.4.120
+clean-fid==0.1.35
+lpips==0.1.4
+torchmetrics==1.9.0
+tensorboard==2.21.0

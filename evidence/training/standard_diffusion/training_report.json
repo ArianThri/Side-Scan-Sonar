@@ -1,0 +1,77 @@
+{
+  "status": "pass",
+  "purpose": "full 10%-label standard diffusion training",
+  "condition": "standard",
+  "steps_completed": 2500,
+  "configured_max_steps": 20000,
+  "early_stopped_by_configured_patience": false,
+  "intentionally_stopped_at_validation_checkpoint": true,
+  "stop_reason": "Stopped by evidence review at the completed step-2500 checkpoint after two consecutive fixed-noise full-validation checks failed to improve on the step-1500 minimum.",
+  "best_validation_total": 0.058005236089229584,
+  "best_validation_step": 1500,
+  "final_validation_total": 0.05868024379014969,
+  "final_stale_validations": 2,
+  "validation_history": [
+    {
+      "step": 500,
+      "validation_total": 0.06197066232562065,
+      "validation_epsilon": 0.06197066232562065,
+      "validation_geometry": 0.0,
+      "validation_range": 0.0,
+      "validation_speckle": 0.0,
+      "improved": true,
+      "stale_validations": 0
+    },
+    {
+      "step": 1000,
+      "validation_total": 0.0596180222928524,
+      "validation_epsilon": 0.0596180222928524,
+      "validation_geometry": 0.0,
+      "validation_range": 0.0,
+      "validation_speckle": 0.0,
+      "improved": true,
+      "stale_validations": 0
+    },
+    {
+      "step": 1500,
+      "validation_total": 0.058005236089229584,
+      "validation_epsilon": 0.058005236089229584,
+      "validation_geometry": 0.0,
+      "validation_range": 0.0,
+      "validation_speckle": 0.0,
+      "improved": true,
+      "stale_validations": 0
+    },
+    {
+      "step": 2000,
+      "validation_total": 0.05905257910490036,
+      "validation_epsilon": 0.05905257910490036,
+      "validation_geometry": 0.0,
+      "validation_range": 0.0,
+      "validation_speckle": 0.0,
+      "improved": false,
+      "stale_validations": 1
+    },
+    {
+      "step": 2500,
+      "validation_total": 0.05868024379014969,
+      "validation_epsilon": 0.05868024379014969,
+      "validation_geometry": 0.0,
+      "validation_range": 0.0,
+      "validation_speckle": 0.0,
+      "improved": false,
+      "stale_validations": 2
+    }
+  ],
+  "train_images": 26,
+  "validation_images": 54,
+  "effective_batch_size": 4,
+  "elapsed_seconds_to_final_logged_training_step": 2591.6869566440582,
+  "peak_cuda_memory_mb": 2450.009765625,
+  "latest_checkpoint": "models/diffusion/standard/label_010_v1/checkpoint_latest.pt",
+  "latest_checkpoint_sha256": "199c908e10ddd65b1a5a6d05337f2aa47c71fb7ea2c7687bad35f4269584d67e",
+  "best_model": "models/diffusion/standard/label_010_v1/best_model",
+  "best_model_sha256": "857479a72fd1e3447bfae56d21ab087220a8ade85c1444aa92acf20682dc459e",
+  "best_model_class_embeddings": 4,
+  "checkpoint_reload_and_step_match": "pass"
+}

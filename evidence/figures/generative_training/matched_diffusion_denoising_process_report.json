@@ -1,0 +1,57 @@
+{
+  "status": "pass",
+  "purpose": "post-hoc deterministic DDIM trajectory reconstruction ending in verified archived synthetic outputs; intermediate states were not logged during original training",
+  "source": "data/processed/generative_256_v1/images/train/000143.png",
+  "source_sha256": "8e3c9742701da7d4e5a80a1332df58f3dbd99b5b0201e9901e3792941f790dca",
+  "class_name": "ship",
+  "guidance_scale": 1.0,
+  "source_strength": 0.3,
+  "requested_inference_steps": 50,
+  "executed_trajectory_steps": {
+    "standard": 16,
+    "grounded": 16
+  },
+  "captured_timesteps": [
+    300,
+    220,
+    140,
+    80,
+    0
+  ],
+  "common_initial_noisy_state": false,
+  "reason_initial_states_differ": "Each row uses the seed recorded for its own archived candidate.",
+  "archived_output_verification": {
+    "standard": {
+      "candidate_id": "l010_standard_diffusion_000143",
+      "seed": 20049,
+      "archived_image": "synthetic/label_010_v1/standard_diffusion/l010_standard_diffusion_000143.png",
+      "archived_image_sha256": "44df3f5f01f5456d13ba0fdb89642c4c03586370b6553b0c1ba7c29d8813e351",
+      "final_pixel_identical_to_archived": true,
+      "max_absolute_pixel_difference": 0,
+      "mean_absolute_pixel_difference": 0.0
+    },
+    "grounded": {
+      "candidate_id": "l010_grounded_diffusion_000143",
+      "seed": 30049,
+      "archived_image": "synthetic/label_010_v1/grounded_diffusion/l010_grounded_diffusion_000143.png",
+      "archived_image_sha256": "87f9902233e8cf806d7fccd5b51538ea46c7b8c6bcab244b9cadc42b827c74c5",
+      "final_pixel_identical_to_archived": true,
+      "max_absolute_pixel_difference": 0,
+      "mean_absolute_pixel_difference": 0.0
+    }
+  },
+  "model_weights_sha256": {
+    "standard": "857479a72fd1e3447bfae56d21ab087220a8ade85c1444aa92acf20682dc459e",
+    "grounded": "5be69f805cc3ed5a7803e56a28e1f1c80157be5d18261b106f75c1f810920105"
+  },
+  "mean_absolute_final_source_difference_255": {
+    "standard": 8.291971842447916,
+    "grounded": 9.296763102213541
+  },
+  "figure_png": "results/figures/label_010_v1/generative_training/matched_diffusion_denoising_process.png",
+  "figure_pdf": "results/figures/label_010_v1/generative_training/matched_diffusion_denoising_process.pdf",
+  "sampling_selection_report": "results/full/label_010_v1/diffusion_sampling_selection/selection_report.json",
+  "sampling_selection_report_sha256": "19025eadc762121e87fbe5275c967c3bed9cb9ecf99cac74ffe35b322b289dc7",
+  "candidate_registry": "experiments/label_010_v1/candidate_registry.csv",
+  "candidate_registry_sha256": "df18a9dd9ada7ff17143278a851860ff08741d74502076be167928a9b6dfe7bc"
+}

@@ -1,0 +1,36 @@
+{
+  "method": "exact-duplicate-group-aware class-aware split",
+  "version": "group_aware_v1",
+  "dataset_root": "data/raw/SCTD",
+  "split_totals": {
+    "train": 249,
+    "val": 54,
+    "test": 54
+  },
+  "ratios": {
+    "train": 0.6974789915966386,
+    "val": 0.15126050420168066,
+    "test": 0.15126050420168066
+  },
+  "seed": 42,
+  "hash_algorithm": "SHA-256",
+  "class_targets": {
+    "aircraft": {
+      "train": 40,
+      "val": 9,
+      "test": 8
+    },
+    "human": {
+      "train": 24,
+      "val": 5,
+      "test": 5
+    },
+    "ship": {
+      "train": 185,
+      "val": 40,
+      "test": 41
+    }
+  },
+  "exact_duplicate_groups": 25,
+  "cross_partition_exact_duplicate_groups": 0
+}

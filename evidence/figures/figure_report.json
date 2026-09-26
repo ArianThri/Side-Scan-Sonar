@@ -1,0 +1,8 @@
+{
+  "status": "pass",
+  "output": "results/figures/label_010_v1",
+  "primary_detector_figures": 3,
+  "synthetic_quality_figures": 1,
+  "ablation_figures_created": 2,
+  "source_policy": "all plotted values read from verified result JSON/CSV files"
+}

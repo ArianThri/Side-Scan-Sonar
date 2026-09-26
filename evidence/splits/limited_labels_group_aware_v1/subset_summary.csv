@@ -1,0 +1,13 @@
+label_level,class_name,image_count
+10,aircraft,4
+10,human,3
+10,ship,19
+25,aircraft,10
+25,human,6
+25,ship,47
+50,aircraft,20
+50,human,12
+50,ship,93
+100,aircraft,40
+100,human,24
+100,ship,185

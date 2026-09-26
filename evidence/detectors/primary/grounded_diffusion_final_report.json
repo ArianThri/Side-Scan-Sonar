@@ -1,0 +1,172 @@
+{
+  "status": "pass",
+  "purpose": "full controlled YOLO11n detector condition",
+  "condition": "grounded_diffusion",
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "dataset_yaml": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/data/processed/yolo_experiments/label_010_v1/grounded_diffusion/dataset.yaml",
+  "dataset_counts": {
+    "train": 52,
+    "train_real": 26,
+    "train_synthetic": 26,
+    "validation": 54,
+    "test": 54
+  },
+  "protocol": {
+    "model": "yolo11n.pt",
+    "image_size": 640,
+    "optimiser": "AdamW",
+    "initial_learning_rate": 0.001,
+    "batch_size": 8,
+    "epochs": 100,
+    "patience": 20,
+    "workers": 4,
+    "amp": true,
+    "seed": 42,
+    "deterministic": true,
+    "pretrained_weights_identical_across_conditions": true,
+    "detector_side_augmentation_identical_across_conditions": true,
+    "validation_and_test_real_only": true
+  },
+  "initial_weights": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/models/cache/ultralytics/yolo11n.pt",
+  "initial_weights_sha256": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+  "best_checkpoint": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/detectors/label_010_v1/grounded_diffusion/train/weights/best.pt",
+  "best_checkpoint_sha256": "63b018c092527ba6fce5afe03d3c6610335df88bc2dd1ac9526d3e65d5b0893b",
+  "last_checkpoint_sha256": "c8f442fba82ca30c058a70d673c51eea677c7b16998885e662d643a0ce912d2f",
+  "train_directory": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/detectors/label_010_v1/grounded_diffusion/train",
+  "validation_directory": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/detectors/label_010_v1/grounded_diffusion/evaluate_val",
+  "test_directory": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/results/detectors/label_010_v1/grounded_diffusion/evaluate_test",
+  "training": {
+    "epochs_completed": 85,
+    "best_validation_epoch_from_csv": 65,
+    "best_epoch_validation_precision": 0.37141,
+    "best_epoch_validation_recall": 0.42434,
+    "best_epoch_validation_mAP50": 0.48765,
+    "best_epoch_validation_mAP50_95": 0.28515,
+    "final_epoch": 85
+  },
+  "validation": {
+    "precision": 0.37235287736982353,
+    "recall": 0.4322751322751322,
+    "mAP50": 0.4947317240495012,
+    "mAP50_95": 0.27149835643374765,
+    "per_class": {
+      "aircraft": {
+        "precision": 0.191723284347443,
+        "recall": 0.1111111111111111,
+        "f1": 0.14068802929376198,
+        "mAP50": 0.16497117905829065,
+        "mAP50_95": 0.10330544943592697
+      },
+      "human": {
+        "precision": 0.6313655149577192,
+        "recall": 0.4,
+        "f1": 0.4897317242441266,
+        "mAP50": 0.6646878147029203,
+        "mAP50_95": 0.367687562940584
+      },
+      "ship": {
+        "precision": 0.2939698328043084,
+        "recall": 0.7857142857142857,
+        "f1": 0.4278590251383925,
+        "mAP50": 0.6545361783872927,
+        "mAP50_95": 0.343502056924732
+      }
+    },
+    "confusion_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        2.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        2.0,
+        4.0,
+        33.0,
+        31.0
+      ],
+      [
+        6.0,
+        1.0,
+        9.0,
+        0.0
+      ]
+    ],
+    "speed_ms_per_image": {
+      "preprocess": 1.8229685184552282,
+      "inference": 9.627792592591842,
+      "loss": 0.000927777835857813,
+      "postprocess": 1.6103944445031058
+    }
+  },
+  "test": {
+    "precision": 0.5393930130769911,
+    "recall": 0.2638888888888889,
+    "mAP50": 0.2857795725320404,
+    "mAP50_95": 0.12153649808053237,
+    "per_class": {
+      "aircraft": {
+        "precision": 0.19129232707108143,
+        "recall": 0.125,
+        "f1": 0.1511989943310351,
+        "mAP50": 0.2156381011682382,
+        "mAP50_95": 0.04416542158215915
+      },
+      "human": {
+        "precision": 1.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "mAP50": 0.11166666666666666,
+        "mAP50_95": 0.05913333333333333
+      },
+      "ship": {
+        "precision": 0.4268867121598917,
+        "recall": 0.6666666666666666,
+        "f1": 0.520488797255255,
+        "mAP50": 0.5300339497612163,
+        "mAP50_95": 0.26131073932610455
+      }
+    },
+    "confusion_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        3.0,
+        2.0,
+        28.0,
+        30.0
+      ],
+      [
+        4.0,
+        4.0,
+        14.0,
+        0.0
+      ]
+    ],
+    "speed_ms_per_image": {
+      "preprocess": 1.4365592593026963,
+      "inference": 7.470716666628302,
+      "loss": 0.0008388888427698813,
+      "postprocess": 1.6237592592544927
+    }
+  },
+  "training_elapsed_seconds": 169.12493515014648,
+  "total_elapsed_seconds": 210.39242935180664,
+  "selection_policy": "best checkpoint selected by the fixed real validation set; test used only for final evaluation"
+}

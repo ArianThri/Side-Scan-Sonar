@@ -1,0 +1,37 @@
+{
+  "status": "pass",
+  "method": "traditional",
+  "expected": 26,
+  "generated": 26,
+  "equal_budget_count_pass": true,
+  "exact_pixel_copies": 0,
+  "mean_absolute_source_difference_255": 18.430987235827324,
+  "minimum_absolute_source_difference_255": 6.7470347086588545,
+  "maximum_absolute_source_difference_255": 45.13626607259115,
+  "geometric_bounds": {
+    "rotation_degrees": [
+      -1.5,
+      1.5
+    ],
+    "scale": [
+      0.99,
+      1.01
+    ],
+    "translation_pixels": [
+      -3.0,
+      3.0
+    ]
+  },
+  "photometric_bounds": {
+    "global_intensity_gain": [
+      0.94,
+      1.06
+    ],
+    "gamma": [
+      0.96,
+      1.04
+    ]
+  },
+  "independent_additive_noise_used": false,
+  "boxes_transformed": true
+}

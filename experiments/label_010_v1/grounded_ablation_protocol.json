@@ -1,0 +1,66 @@
+{
+  "status": "frozen_before_new_ablation_training",
+  "frozen_date": "2026-08-19",
+  "purpose": "controlled full/no-acoustic/no-geometric/neither grounded-diffusion ablation",
+  "conditions": {
+    "full": {"geometric": true, "range": true, "speckle": true},
+    "no_acoustic": {"geometric": true, "range": false, "speckle": false},
+    "no_geometric": {"geometric": false, "range": true, "speckle": true},
+    "neither": {"geometric": false, "range": false, "speckle": false}
+  },
+  "model_mapping": {
+    "full": "models/diffusion/grounded/label_010_v1/best_model",
+    "no_acoustic": "models/diffusion/ablations/no_acoustic/label_010_v1/best_model",
+    "no_geometric": "models/diffusion/ablations/no_geometric/label_010_v1/best_model",
+    "neither": "models/diffusion/standard/label_010_v1/best_model"
+  },
+  "new_training_required": ["no_acoustic", "no_geometric"],
+  "reuse_rationale": "Full is the already trained all-component grounded model; neither is exactly the already trained epsilon-only standard model. Retraining either would change only the random run, not the ablated objective.",
+  "training": {
+    "pretrained_backbone": "google/ddpm-celebahq-256",
+    "seed": 42,
+    "train_images": 26,
+    "validation_images": 54,
+    "learning_rate": 0.00001,
+    "optimiser": "AdamW",
+    "batch_size": 1,
+    "gradient_accumulation": 4,
+    "effective_batch_size": 4,
+    "classifier_free_condition_dropout": 0.1,
+    "maximum_steps": 20000,
+    "validation_every_steps": 500,
+    "patience_validations": 2,
+    "selection_metric": "fixed-noise real-validation total objective",
+    "patience_rationale": "Two consecutive non-improving validation checkpoints reproduce the evidence-review boundary used to finalise the existing full and neither runs."
+  },
+  "sampling": {
+    "scheduler": "DDIM",
+    "inference_steps": 50,
+    "guidance_scale": 1.0,
+    "source_strength": 0.3,
+    "selection_source": "results/full/label_010_v1/diffusion_sampling_selection/selection_report.json",
+    "common_random_numbers": true,
+    "candidate_seed_rule": "40042 + zero-based ordered source index",
+    "one_candidate_per_source": true,
+    "candidate_count_per_condition": 26
+  },
+  "annotation_validation": {
+    "same_gate_as_primary_experiment": true,
+    "phase_response_min": 0.1,
+    "phase_shift_max_pixels": 8.0,
+    "target_ncc_min": 0.25,
+    "target_edge_ratio_min": 0.35,
+    "target_edge_ratio_max": 2.85,
+    "target_contrast_polarity_preserved": true
+  },
+  "detector": {
+    "protocol_source": "configs/models.yaml",
+    "same_initial_yolo11n_weights": true,
+    "same_real_train_images": true,
+    "same_real_validation_and_test_sets": true,
+    "synthetic_budget_per_condition": 26,
+    "primary_final_metric": "real-test mAP50-95",
+    "single_deterministic_seed": 42
+  },
+  "test_use_policy": "No test labels are used for generative training, sampling selection, QC thresholds, or detector checkpoint selection. Test is evaluated after validation selection only."
+}

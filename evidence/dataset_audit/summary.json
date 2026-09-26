@@ -1,0 +1,19 @@
+{
+  "dataset_root": "D:\\Dissertation\\Implementation\\SCTD_Implementation_Starter\\data\\raw\\SCTD",
+  "image_file_count": 357,
+  "xml_file_count": 357,
+  "manifest_row_count": 357,
+  "invalid_issue_count": 0,
+  "exact_duplicate_group_count": 25,
+  "exact_duplicate_image_count": 55,
+  "class_object_counts": {
+    "aircraft": 57,
+    "human": 35,
+    "ship": 271
+  },
+  "class_image_counts": {
+    "aircraft": 57,
+    "human": 34,
+    "ship": 266
+  }
+}

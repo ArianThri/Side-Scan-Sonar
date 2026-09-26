@@ -1,0 +1,3 @@
+dataset:
+  root: data/raw/SCTD
+  audit_output: data/audit

@@ -1,0 +1,93 @@
+{
+  "status": "pass",
+  "purpose": "publication-ready generative-model training figures from verified append-only histories",
+  "output": "results/figures/label_010_v1/generative_training",
+  "figures": {
+    "gan": {
+      "png": "results/figures/label_010_v1/generative_training/gan_training_curves.png",
+      "pdf": "results/figures/label_010_v1/generative_training/gan_training_curves.pdf"
+    },
+    "standard_diffusion": {
+      "png": "results/figures/label_010_v1/generative_training/standard_diffusion_training_curves.png",
+      "pdf": "results/figures/label_010_v1/generative_training/standard_diffusion_training_curves.pdf"
+    },
+    "grounded_diffusion": {
+      "png": "results/figures/label_010_v1/generative_training/grounded_diffusion_training_curves.png",
+      "pdf": "results/figures/label_010_v1/generative_training/grounded_diffusion_training_curves.pdf"
+    },
+    "diffusion_ablation": {
+      "png": "results/figures/label_010_v1/generative_training/diffusion_ablation_validation_curves.png",
+      "pdf": "results/figures/label_010_v1/generative_training/diffusion_ablation_validation_curves.pdf"
+    }
+  },
+  "evidence": {
+    "gan": {
+      "epochs": 56,
+      "selected_epoch": 31,
+      "selected_validation_l1": 0.007157320547618984,
+      "max_generator_objective_reconstruction_residual": 2.2721776238299185e-08,
+      "log": "models/gan/label_010_v1/training_log.jsonl",
+      "log_sha256": "1c5d7b4d624966d8cf77b0d31d6c780edd66b8fd5aa11bccbd51d56c267536c0",
+      "report": "models/gan/label_010_v1/training_report.json",
+      "report_sha256": "bcbd8fd0200de7d96e6cef867b1ada0bafd71227ceecb825406d6d673cc73770"
+    },
+    "standard_diffusion": {
+      "training_records": 51,
+      "validation_records": 5,
+      "selected_step": 1500,
+      "selected_validation_total": 0.058005236089229584,
+      "max_objective_reconstruction_residual": 0.0,
+      "log": "models/diffusion/standard/label_010_v1/training_log.jsonl",
+      "log_sha256": "b55081bfb05f1ab0b3bfdd00904690beab71f9357986dc48500fc0845020efe7",
+      "report": "models/diffusion/standard/label_010_v1/training_report.json",
+      "report_sha256": "03eb70155783fcb0d445843ec0c05aa89253b50e963853b4d9b460fabc8b3788"
+    },
+    "grounded_diffusion": {
+      "training_records": 40,
+      "validation_records": 4,
+      "selected_step": 1000,
+      "selected_validation_total": 0.06878475099802017,
+      "loss_weights": {
+        "geometry": 0.1,
+        "range": 0.05,
+        "speckle": 0.05
+      },
+      "max_objective_reconstruction_residual": 5.029141902923584e-08,
+      "log": "models/diffusion/grounded/label_010_v1/training_log.jsonl",
+      "log_sha256": "539372950cd7a3d07a6aeaa72c4cc50da8bf90139fb7d6b3098cc8673bc47843",
+      "report": "models/diffusion/grounded/label_010_v1/training_report.json",
+      "report_sha256": "610f98eaad4ed03ab9c3201fe3a10bbecb00aa1f43e806b18a7ed6634523162c"
+    },
+    "diffusion_ablation": {
+      "full": {
+        "validation_records": 4,
+        "selected_step": 1000,
+        "selected_validation_total": 0.06878475099802017,
+        "report": "models/diffusion/grounded/label_010_v1/training_report.json",
+        "report_sha256": "610f98eaad4ed03ab9c3201fe3a10bbecb00aa1f43e806b18a7ed6634523162c"
+      },
+      "no_acoustic": {
+        "validation_records": 9,
+        "selected_step": 3500,
+        "selected_validation_total": 0.062282923609018326,
+        "report": "models/diffusion/ablations/no_acoustic/label_010_v1/verified_training_report.json",
+        "report_sha256": "4a5d6c142d3aed2e5893283587a1bb1a70318275ec76e8ca96fe3c225ef051b1"
+      },
+      "no_geometric": {
+        "validation_records": 5,
+        "selected_step": 1500,
+        "selected_validation_total": 0.06440384685993195,
+        "report": "models/diffusion/ablations/no_geometric/label_010_v1/verified_training_report.json",
+        "report_sha256": "cd78c17ab972de74cbfda319ed0b2d01884afd5d0c2a5e112589e2f6786af060"
+      },
+      "neither": {
+        "validation_records": 5,
+        "selected_step": 1500,
+        "selected_validation_total": 0.058005236089229584,
+        "report": "models/diffusion/standard/label_010_v1/training_report.json",
+        "report_sha256": "03eb70155783fcb0d445843ec0c05aa89253b50e963853b4d9b460fabc8b3788"
+      }
+    }
+  },
+  "interpretation_constraint": "validation totals select checkpoints only within objectives; unlike objective totals are not ranked across arms"
+}

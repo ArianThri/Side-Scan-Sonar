@@ -1,0 +1,708 @@
+{
+  "status": "pass",
+  "purpose": "equal-budget synthetic quality evaluation",
+  "methods": [
+    "traditional",
+    "gan",
+    "standard_diffusion",
+    "grounded_diffusion"
+  ],
+  "real_source_count": 26,
+  "identical_ordered_source_budget": true,
+  "image_size": [
+    256,
+    256
+  ],
+  "fid": {
+    "feature_space": "Clean-FID clean-mode Inception-v3 pool features (2048 dimensions)",
+    "estimator": "sample mean/covariance; exact low-rank Frechet computation",
+    "ranking_lower_is_better": [
+      "gan",
+      "traditional",
+      "standard_diffusion",
+      "grounded_diffusion"
+    ],
+    "small_sample_warning": "n=26 per set; FID is reported as descriptive evidence and is high-variance"
+  },
+  "mmd": {
+    "feature_space": "same frozen Clean-FID Inception features as FID",
+    "kernel": "RBF with deterministic pooled median squared-distance bandwidth",
+    "primary": "biased non-negative MMD squared; unbiased estimate also retained"
+  },
+  "paired_metrics": {
+    "lpips": "calibrated LPIPS v0.1 with ImageNet AlexNet trunk; lower is more similar",
+    "ssim_psnr": "grayscale luminance after phase-correlation translation; valid overlap only",
+    "interpretation_warning": "high paired similarity measures source preservation, not synthetic diversity"
+  },
+  "metric_cache": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/models/cache/metrics",
+  "inception_weights": "D:/Dissertation/Implementation/SCTD_Implementation_Starter/models/cache/metrics/inception-2015-12-05.pt",
+  "inception_weights_sha256": "f58cb9b6ec323ed63459aa4fb441fe750cfe39fafad6da5cb504a16f19e958f4",
+  "feature_files": {
+    "traditional": "results/quality/label_010_v1/traditional_inception_features.npy",
+    "gan": "results/quality/label_010_v1/gan_inception_features.npy",
+    "standard_diffusion": "results/quality/label_010_v1/standard_diffusion_inception_features.npy",
+    "grounded_diffusion": "results/quality/label_010_v1/grounded_diffusion_inception_features.npy"
+  },
+  "results": {
+    "traditional": {
+      "sample_count": 26,
+      "fid_clean_inception": 80.44367949077292,
+      "mmd2_rbf_biased": 0.013483039239293282,
+      "mmd2_rbf_unbiased": -0.017074705726042305,
+      "mmd_rbf_median_bandwidth_squared": 418.3579240253764,
+      "exact_pixel_copies": 0,
+      "paired_metrics": {
+        "mean_absolute_source_difference_255": {
+          "mean": 18.430987235827324,
+          "standard_deviation": 10.552116472312125,
+          "minimum": 6.7470347086588545,
+          "maximum": 45.13626607259115
+        },
+        "phase_shift_pixels": {
+          "mean": 2.380228848034857,
+          "standard_deviation": 0.9386477269070631,
+          "minimum": 0.60333476549915,
+          "maximum": 4.220207025011484
+        },
+        "phase_response": {
+          "mean": 0.8704045037761367,
+          "standard_deviation": 0.10815496732450011,
+          "minimum": 0.644416440743953,
+          "maximum": 0.9906014286680147
+        },
+        "lpips_alex_v0_1": {
+          "mean": 0.1409598749417525,
+          "standard_deviation": 0.039935304020589237,
+          "minimum": 0.08018310368061066,
+          "maximum": 0.21808749437332153
+        },
+        "aligned_luminance_ssim": {
+          "mean": 0.626718785900336,
+          "standard_deviation": 0.19078128163344701,
+          "minimum": 0.2522541284561157,
+          "maximum": 0.8980737924575806
+        },
+        "aligned_luminance_psnr_db": {
+          "mean": 21.750186282390377,
+          "standard_deviation": 4.110665452968238,
+          "minimum": 14.893767883733345,
+          "maximum": 29.475916869714887
+        }
+      },
+      "per_class": {
+        "aircraft": {
+          "sample_count": 4,
+          "mean_absolute_source_difference_255": {
+            "mean": 16.958880106608074,
+            "standard_deviation": 7.885181701403116,
+            "minimum": 9.6441650390625,
+            "maximum": 28.143351236979168
+          },
+          "phase_shift_pixels": {
+            "mean": 3.0149230075333264,
+            "standard_deviation": 0.9694258724639666,
+            "minimum": 2.0958180485412017,
+            "maximum": 4.001342206709948
+          },
+          "phase_response": {
+            "mean": 0.8335927371517755,
+            "standard_deviation": 0.14380176148879237,
+            "minimum": 0.644416440743953,
+            "maximum": 0.9761814422672614
+          },
+          "lpips_alex_v0_1": {
+            "mean": 0.1409861519932747,
+            "standard_deviation": 0.04014129350350327,
+            "minimum": 0.11396025121212006,
+            "maximum": 0.20023877918720245
+          },
+          "aligned_luminance_ssim": {
+            "mean": 0.6219674572348595,
+            "standard_deviation": 0.2200335377540752,
+            "minimum": 0.37810376286506653,
+            "maximum": 0.8980737924575806
+          },
+          "aligned_luminance_psnr_db": {
+            "mean": 23.329559587640905,
+            "standard_deviation": 4.992570464448735,
+            "minimum": 17.80886049640887,
+            "maximum": 29.475916869714887
+          }
+        },
+        "human": {
+          "sample_count": 3,
+          "mean_absolute_source_difference_255": {
+            "mean": 28.50341457790799,
+            "standard_deviation": 10.08326770513255,
+            "minimum": 17.441630045572918,
+            "maximum": 37.18073018391927
+          },
+          "phase_shift_pixels": {
+            "mean": 1.830481988314563,
+            "standard_deviation": 0.6651020116431674,
+            "minimum": 1.192184984851269,
+            "maximum": 2.5194863909307608
+          },
+          "phase_response": {
+            "mean": 0.8746179804438725,
+            "standard_deviation": 0.13353714090415314,
+            "minimum": 0.7220901374239475,
+            "maximum": 0.9704678874695674
+          },
+          "lpips_alex_v0_1": {
+            "mean": 0.15513499081134796,
+            "standard_deviation": 0.030346354359931448,
+            "minimum": 0.12424609065055847,
+            "maximum": 0.18490801751613617
+          },
+          "aligned_luminance_ssim": {
+            "mean": 0.5701595445473989,
+            "standard_deviation": 0.25761409034712124,
+            "minimum": 0.30373063683509827,
+            "maximum": 0.8179460167884827
+          },
+          "aligned_luminance_psnr_db": {
+            "mean": 18.281058752098797,
+            "standard_deviation": 3.9778224458847506,
+            "minimum": 14.893767883733345,
+            "maximum": 22.66129437475474
+          }
+        },
+        "ship": {
+          "sample_count": 19,
+          "mean_absolute_source_difference_255": {
+            "mean": 17.15052126165022,
+            "standard_deviation": 10.670895412075836,
+            "minimum": 6.7470347086588545,
+            "maximum": 45.13626607259115
+          },
+          "phase_shift_pixels": {
+            "mean": 2.333411160727857,
+            "standard_deviation": 0.9357929016950212,
+            "minimum": 0.60333476549915,
+            "maximum": 4.220207025011484
+          },
+          "phase_response": {
+            "mean": 0.8774890635916228,
+            "standard_deviation": 0.10228199975444335,
+            "minimum": 0.6643298964481801,
+            "maximum": 0.9906014286680147
+          },
+          "lpips_alex_v0_1": {
+            "mean": 0.13871616674096962,
+            "standard_deviation": 0.04248953146046941,
+            "minimum": 0.08018310368061066,
+            "maximum": 0.21808749437332153
+          },
+          "aligned_luminance_ssim": {
+            "mean": 0.6366494721487949,
+            "standard_deviation": 0.18565233746927404,
+            "minimum": 0.2522541284561157,
+            "maximum": 0.8475056290626526
+          },
+          "aligned_luminance_psnr_db": {
+            "mean": 21.965443617646837,
+            "standard_deviation": 3.8661870608114963,
+            "minimum": 14.939537148912361,
+            "maximum": 26.608507442842036
+          }
+        }
+      }
+    },
+    "gan": {
+      "sample_count": 26,
+      "fid_clean_inception": 25.09660003448505,
+      "mmd2_rbf_biased": 0.0038069619531291288,
+      "mmd2_rbf_unbiased": -0.02694357042234219,
+      "mmd_rbf_median_bandwidth_squared": 428.62129602223933,
+      "exact_pixel_copies": 0,
+      "paired_metrics": {
+        "mean_absolute_source_difference_255": {
+          "mean": 2.5970480503180084,
+          "standard_deviation": 0.575243089430227,
+          "minimum": 1.714569091796875,
+          "maximum": 3.4530232747395835
+        },
+        "phase_shift_pixels": {
+          "mean": 0.008584672970427639,
+          "standard_deviation": 0.004141760705491862,
+          "minimum": 0.0008696658693541602,
+          "maximum": 0.017586478290471073
+        },
+        "phase_response": {
+          "mean": 0.988955825103823,
+          "standard_deviation": 0.005750037525432421,
+          "minimum": 0.9731586896814406,
+          "maximum": 0.9955034630984301
+        },
+        "lpips_alex_v0_1": {
+          "mean": 0.006635670953143675,
+          "standard_deviation": 0.004778812176899169,
+          "minimum": 0.0019078126642853022,
+          "maximum": 0.020107319578528404
+        },
+        "aligned_luminance_ssim": {
+          "mean": 0.9796083523676946,
+          "standard_deviation": 0.012666092528935056,
+          "minimum": 0.950264036655426,
+          "maximum": 0.9962256550788879
+        },
+        "aligned_luminance_psnr_db": {
+          "mean": 39.090220025283415,
+          "standard_deviation": 1.4573342449219973,
+          "minimum": 36.84269192308405,
+          "maximum": 41.6249217441137
+        }
+      },
+      "per_class": {
+        "aircraft": {
+          "sample_count": 4,
+          "mean_absolute_source_difference_255": {
+            "mean": 2.527623494466146,
+            "standard_deviation": 0.6298984443642617,
+            "minimum": 1.714569091796875,
+            "maximum": 3.219273885091146
+          },
+          "phase_shift_pixels": {
+            "mean": 0.008067497068847795,
+            "standard_deviation": 0.0018828810028594526,
+            "minimum": 0.00556494316719571,
+            "maximum": 0.009897379286063325
+          },
+          "phase_response": {
+            "mean": 0.9885395398268884,
+            "standard_deviation": 0.004105249929013477,
+            "minimum": 0.9846765549737029,
+            "maximum": 0.9938332201272715
+          },
+          "lpips_alex_v0_1": {
+            "mean": 0.003363428055308759,
+            "standard_deviation": 0.0010269643708788784,
+            "minimum": 0.002646129112690687,
+            "maximum": 0.0048245457001030445
+          },
+          "aligned_luminance_ssim": {
+            "mean": 0.9872177839279175,
+            "standard_deviation": 0.005318048192813272,
+            "minimum": 0.9823423624038696,
+            "maximum": 0.9932299852371216
+          },
+          "aligned_luminance_psnr_db": {
+            "mean": 39.45545294491452,
+            "standard_deviation": 1.7283738320606594,
+            "minimum": 37.39407184930991,
+            "maximum": 41.6249217441137
+          }
+        },
+        "human": {
+          "sample_count": 3,
+          "mean_absolute_source_difference_255": {
+            "mean": 3.219540066189236,
+            "standard_deviation": 0.23729310621933628,
+            "minimum": 2.978612263997396,
+            "maximum": 3.4530232747395835
+          },
+          "phase_shift_pixels": {
+            "mean": 0.0089809489504154,
+            "standard_deviation": 0.0036918215732434966,
+            "minimum": 0.0061513532957177585,
+            "maximum": 0.013157012402772662
+          },
+          "phase_response": {
+            "mean": 0.9824869463191135,
+            "standard_deviation": 0.009448230740706531,
+            "minimum": 0.9731586896814406,
+            "maximum": 0.9920507465867558
+          },
+          "lpips_alex_v0_1": {
+            "mean": 0.003417415622000893,
+            "standard_deviation": 0.0015827594042345562,
+            "minimum": 0.0022671548649668694,
+            "maximum": 0.005222506355494261
+          },
+          "aligned_luminance_ssim": {
+            "mean": 0.9883145093917847,
+            "standard_deviation": 0.008611837305234384,
+            "minimum": 0.9783738851547241,
+            "maximum": 0.9935122728347778
+          },
+          "aligned_luminance_psnr_db": {
+            "mean": 37.887368308995356,
+            "standard_deviation": 1.2138300933238515,
+            "minimum": 36.84269192308405,
+            "maximum": 39.21894808021924
+          }
+        },
+        "ship": {
+          "sample_count": 19,
+          "mean_absolute_source_difference_255": {
+            "mean": 2.5133755332545236,
+            "standard_deviation": 0.5605004903288853,
+            "minimum": 1.7152862548828125,
+            "maximum": 3.414581298828125
+          },
+          "phase_shift_pixels": {
+            "mean": 0.008630982216025328,
+            "standard_deviation": 0.004651033301445664,
+            "minimum": 0.0008696658693541602,
+            "maximum": 0.017586478290471073
+          },
+          "phase_response": {
+            "mean": 0.9900648660228686,
+            "standard_deviation": 0.004988175540635905,
+            "minimum": 0.9794734755414538,
+            "maximum": 0.9955034630984301
+          },
+          "lpips_alex_v0_1": {
+            "mean": 0.007832709773394623,
+            "standard_deviation": 0.005064171480804392,
+            "minimum": 0.0019078126642853022,
+            "maximum": 0.020107319578528404
+          },
+          "aligned_luminance_ssim": {
+            "mean": 0.9766317104038439,
+            "standard_deviation": 0.013229223228646166,
+            "minimum": 0.950264036655426,
+            "maximum": 0.9962256550788879
+          },
+          "aligned_luminance_psnr_db": {
+            "mean": 39.203252839511826,
+            "standard_deviation": 1.4155896536106225,
+            "minimum": 36.93919657446065,
+            "maximum": 41.58309701680378
+          }
+        }
+      }
+    },
+    "standard_diffusion": {
+      "sample_count": 26,
+      "fid_clean_inception": 149.36030907327614,
+      "mmd2_rbf_biased": 0.023833129456964697,
+      "mmd2_rbf_unbiased": -0.006833412389539273,
+      "mmd_rbf_median_bandwidth_squared": 424.7019755377228,
+      "exact_pixel_copies": 0,
+      "paired_metrics": {
+        "mean_absolute_source_difference_255": {
+          "mean": 14.517440600272938,
+          "standard_deviation": 6.417846113862115,
+          "minimum": 6.1073760986328125,
+          "maximum": 24.500508626302082
+        },
+        "phase_shift_pixels": {
+          "mean": 0.07413379445652962,
+          "standard_deviation": 0.03971090691998376,
+          "minimum": 0.018981206783448078,
+          "maximum": 0.15504100378066582
+        },
+        "phase_response": {
+          "mean": 0.6962598819529655,
+          "standard_deviation": 0.07868073787216849,
+          "minimum": 0.5439073971938342,
+          "maximum": 0.8410128769464791
+        },
+        "lpips_alex_v0_1": {
+          "mean": 0.14020099863409996,
+          "standard_deviation": 0.0380921577940784,
+          "minimum": 0.07927535474300385,
+          "maximum": 0.23576952517032623
+        },
+        "aligned_luminance_ssim": {
+          "mean": 0.5794021212137662,
+          "standard_deviation": 0.0747686781137401,
+          "minimum": 0.4333369731903076,
+          "maximum": 0.6950651407241821
+        },
+        "aligned_luminance_psnr_db": {
+          "mean": 21.539734233330872,
+          "standard_deviation": 3.4070603254574547,
+          "minimum": 16.60064482087449,
+          "maximum": 27.36498434525
+        }
+      },
+      "per_class": {
+        "aircraft": {
+          "sample_count": 4,
+          "mean_absolute_source_difference_255": {
+            "mean": 13.128313700358074,
+            "standard_deviation": 5.812562143299686,
+            "minimum": 8.761423746744791,
+            "maximum": 21.698694864908855
+          },
+          "phase_shift_pixels": {
+            "mean": 0.05167919366631358,
+            "standard_deviation": 0.020660377798203493,
+            "minimum": 0.025206710401670693,
+            "maximum": 0.07447231069222397
+          },
+          "phase_response": {
+            "mean": 0.749906170196482,
+            "standard_deviation": 0.06552291293509539,
+            "minimum": 0.6619878034107387,
+            "maximum": 0.8111943211406469
+          },
+          "lpips_alex_v0_1": {
+            "mean": 0.140672255307436,
+            "standard_deviation": 0.044106440655928204,
+            "minimum": 0.10249592363834381,
+            "maximum": 0.1877194494009018
+          },
+          "aligned_luminance_ssim": {
+            "mean": 0.5182602107524872,
+            "standard_deviation": 0.06179038341961201,
+            "minimum": 0.4333369731903076,
+            "maximum": 0.5653334259986877
+          },
+          "aligned_luminance_psnr_db": {
+            "mean": 22.372667028084326,
+            "standard_deviation": 2.8897020475310966,
+            "minimum": 18.21704232842928,
+            "maximum": 24.91017059445366
+          }
+        },
+        "human": {
+          "sample_count": 3,
+          "mean_absolute_source_difference_255": {
+            "mean": 22.985143025716145,
+            "standard_deviation": 1.2298316456651375,
+            "minimum": 21.578893025716145,
+            "maximum": 23.859532674153645
+          },
+          "phase_shift_pixels": {
+            "mean": 0.04769550536418506,
+            "standard_deviation": 0.01982602237761437,
+            "minimum": 0.0272695237590432,
+            "maximum": 0.0668614632680845
+          },
+          "phase_response": {
+            "mean": 0.7176045568388266,
+            "standard_deviation": 0.11793136265414669,
+            "minimum": 0.6060446429182775,
+            "maximum": 0.8410128769464791
+          },
+          "lpips_alex_v0_1": {
+            "mean": 0.16306759913762411,
+            "standard_deviation": 0.025566949821410043,
+            "minimum": 0.13380472362041473,
+            "maximum": 0.181080162525177
+          },
+          "aligned_luminance_ssim": {
+            "mean": 0.5769689083099365,
+            "standard_deviation": 0.03454351609617579,
+            "minimum": 0.5442794561386108,
+            "maximum": 0.6131076812744141
+          },
+          "aligned_luminance_psnr_db": {
+            "mean": 17.967124066780485,
+            "standard_deviation": 1.016187493157815,
+            "minimum": 16.888954185914752,
+            "maximum": 18.907206890307318
+          }
+        },
+        "ship": {
+          "sample_count": 19,
+          "mean_absolute_source_difference_255": {
+            "mean": 13.472882722553452,
+            "standard_deviation": 6.154404662316639,
+            "minimum": 6.1073760986328125,
+            "maximum": 24.500508626302082
+          },
+          "phase_shift_pixels": {
+            "mean": 0.08303554553220846,
+            "standard_deviation": 0.041990633348551555,
+            "minimum": 0.018981206783448078,
+            "maximum": 0.15504100378066582
+          },
+          "phase_response": {
+            "mean": 0.6815957147091946,
+            "standard_deviation": 0.07344948877516917,
+            "minimum": 0.5439073971938342,
+            "maximum": 0.7932362020947039
+          },
+          "lpips_alex_v0_1": {
+            "mean": 0.1364912708338938,
+            "standard_deviation": 0.03894499529466431,
+            "minimum": 0.07927535474300385,
+            "maximum": 0.23576952517032623
+          },
+          "aligned_luminance_ssim": {
+            "mean": 0.5926582938746402,
+            "standard_deviation": 0.07731908152465448,
+            "minimum": 0.44284531474113464,
+            "maximum": 0.6950651407241821
+          },
+          "aligned_luminance_psnr_db": {
+            "mean": 21.928476302838096,
+            "standard_deviation": 3.4892538824815653,
+            "minimum": 16.60064482087449,
+            "maximum": 27.36498434525
+          }
+        }
+      }
+    },
+    "grounded_diffusion": {
+      "sample_count": 26,
+      "fid_clean_inception": 205.7945525383982,
+      "mmd2_rbf_biased": 0.03234139470172104,
+      "mmd2_rbf_unbiased": 0.0017876787111943404,
+      "mmd_rbf_median_bandwidth_squared": 432.94310627743783,
+      "exact_pixel_copies": 0,
+      "paired_metrics": {
+        "mean_absolute_source_difference_255": {
+          "mean": 15.246174934582834,
+          "standard_deviation": 6.462051208795204,
+          "minimum": 6.925262451171875,
+          "maximum": 25.286763509114582
+        },
+        "phase_shift_pixels": {
+          "mean": 0.08880264751503275,
+          "standard_deviation": 0.049456171670961224,
+          "minimum": 0.0166379645926523,
+          "maximum": 0.2397979359624849
+        },
+        "phase_response": {
+          "mean": 0.6458627549380673,
+          "standard_deviation": 0.08911962883568925,
+          "minimum": 0.4674147201003507,
+          "maximum": 0.8620315454900265
+        },
+        "lpips_alex_v0_1": {
+          "mean": 0.1768585403378193,
+          "standard_deviation": 0.04747590937515822,
+          "minimum": 0.10679098963737488,
+          "maximum": 0.3078681230545044
+        },
+        "aligned_luminance_ssim": {
+          "mean": 0.5202134457918314,
+          "standard_deviation": 0.07577104209827105,
+          "minimum": 0.3939971327781677,
+          "maximum": 0.6500130891799927
+        },
+        "aligned_luminance_psnr_db": {
+          "mean": 21.266297821157,
+          "standard_deviation": 3.322545830404341,
+          "minimum": 16.24432248271654,
+          "maximum": 27.132286731500663
+        }
+      },
+      "per_class": {
+        "aircraft": {
+          "sample_count": 4,
+          "mean_absolute_source_difference_255": {
+            "mean": 13.96523920694987,
+            "standard_deviation": 5.826248772712755,
+            "minimum": 9.477467854817709,
+            "maximum": 22.529500325520832
+          },
+          "phase_shift_pixels": {
+            "mean": 0.0759297033299107,
+            "standard_deviation": 0.06017708470058095,
+            "minimum": 0.0361187939660678,
+            "maximum": 0.16383700341777246
+          },
+          "phase_response": {
+            "mean": 0.6694250086147804,
+            "standard_deviation": 0.06547718112753306,
+            "minimum": 0.595023499801755,
+            "maximum": 0.7285820194520056
+          },
+          "lpips_alex_v0_1": {
+            "mean": 0.17297560721635818,
+            "standard_deviation": 0.03166087459387689,
+            "minimum": 0.14234699308872223,
+            "maximum": 0.2053173929452896
+          },
+          "aligned_luminance_ssim": {
+            "mean": 0.43910180032253265,
+            "standard_deviation": 0.03772251143952747,
+            "minimum": 0.395044207572937,
+            "maximum": 0.4720541834831238
+          },
+          "aligned_luminance_psnr_db": {
+            "mean": 22.039663366241168,
+            "standard_deviation": 2.796771221983895,
+            "minimum": 18.050516220811463,
+            "maximum": 24.593414080404923
+          }
+        },
+        "human": {
+          "sample_count": 3,
+          "mean_absolute_source_difference_255": {
+            "mean": 23.36950344509549,
+            "standard_deviation": 1.3224147418989327,
+            "minimum": 21.996139526367188,
+            "maximum": 24.63427225748698
+          },
+          "phase_shift_pixels": {
+            "mean": 0.0824557746891338,
+            "standard_deviation": 0.024430298753820953,
+            "minimum": 0.06420322465553892,
+            "maximum": 0.11020925588813373
+          },
+          "phase_response": {
+            "mean": 0.7005880955451479,
+            "standard_deviation": 0.15397173114130475,
+            "minimum": 0.5553737094160169,
+            "maximum": 0.8620315454900265
+          },
+          "lpips_alex_v0_1": {
+            "mean": 0.18671384453773499,
+            "standard_deviation": 0.017720204266176064,
+            "minimum": 0.16640543937683105,
+            "maximum": 0.19903187453746796
+          },
+          "aligned_luminance_ssim": {
+            "mean": 0.5253246029218038,
+            "standard_deviation": 0.09196756788360828,
+            "minimum": 0.4193580746650696,
+            "maximum": 0.5843373537063599
+          },
+          "aligned_luminance_psnr_db": {
+            "mean": 18.025633006722256,
+            "standard_deviation": 0.8508494356321279,
+            "minimum": 17.089440443504117,
+            "maximum": 18.751803648830002
+          }
+        },
+        "ship": {
+          "sample_count": 19,
+          "mean_absolute_source_difference_255": {
+            "mean": 14.233214796635142,
+            "standard_deviation": 6.300772878697399,
+            "minimum": 6.925262451171875,
+            "maximum": 25.286763509114582
+          },
+          "phase_shift_pixels": {
+            "mean": 0.09251487884230562,
+            "standard_deviation": 0.05166385348578459,
+            "minimum": 0.0166379645926523,
+            "maximum": 0.2397979359624849
+          },
+          "phase_response": {
+            "mean": 0.6322614372260623,
+            "standard_deviation": 0.0828523135314379,
+            "minimum": 0.4674147201003507,
+            "maximum": 0.7712592944153585
+          },
+          "lpips_alex_v0_1": {
+            "mean": 0.1761198992791929,
+            "standard_deviation": 0.05392986654162794,
+            "minimum": 0.10679098963737488,
+            "maximum": 0.3078681230545044
+          },
+          "aligned_luminance_ssim": {
+            "mean": 0.5364825568701092,
+            "standard_deviation": 0.07107213721472672,
+            "minimum": 0.3939971327781677,
+            "maximum": 0.6500130891799927
+          },
+          "aligned_luminance_psnr_db": {
+            "mean": 21.61516794026055,
+            "standard_deviation": 3.4549360287207302,
+            "minimum": 16.24432248271654,
+            "maximum": 27.132286731500663
+          }
+        }
+      }
+    }
+  }
+}

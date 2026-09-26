@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "purpose": "full 10%-label no_geometric diffusion training",
+  "condition": "no_geometric",
+  "components": {
+    "geometric": false,
+    "range": true,
+    "speckle": true
+  },
+  "loss_weights": {
+    "epsilon": 1.0,
+    "geometric": 0.1,
+    "range": 0.05,
+    "speckle": 0.05
+  },
+  "steps_completed": 2500,
+  "max_steps": 20000,
+  "validation_every_steps": 500,
+  "patience_validations": 2,
+  "gradient_accumulation": 4,
+  "early_stopped": true,
+  "best_validation_total": 0.06440384685993195,
+  "train_images": 26,
+  "validation_images": 54,
+  "elapsed_seconds": 2440.9998869895935,
+  "peak_cuda_memory_mb": 2450.0107421875,
+  "transfer_missing_keys": [
+    "class_embedding.weight"
+  ],
+  "transfer_unexpected_keys": [],
+  "best_model": "models/diffusion/ablations/no_geometric/label_010_v1/best_model"
+}

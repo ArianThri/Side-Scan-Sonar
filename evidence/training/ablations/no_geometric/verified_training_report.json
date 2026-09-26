@@ -1,0 +1,96 @@
+{
+  "status": "pass",
+  "purpose": "full 10%-label no_geometric diffusion training",
+  "condition": "no_geometric",
+  "components": {
+    "geometric": false,
+    "range": true,
+    "speckle": true
+  },
+  "loss_weights": {
+    "epsilon": 1.0,
+    "geometric": 0.1,
+    "range": 0.05,
+    "speckle": 0.05
+  },
+  "steps_completed": 2500,
+  "max_steps": 20000,
+  "validation_every_steps": 500,
+  "patience_validations": 2,
+  "gradient_accumulation": 4,
+  "early_stopped": true,
+  "best_validation_total": 0.06440384685993195,
+  "train_images": 26,
+  "validation_images": 54,
+  "elapsed_seconds": 2440.9998869895935,
+  "peak_cuda_memory_mb": 2450.0107421875,
+  "transfer_missing_keys": [
+    "class_embedding.weight"
+  ],
+  "transfer_unexpected_keys": [],
+  "best_model": "models/diffusion/ablations/no_geometric/label_010_v1/best_model",
+  "verification_status": "pass",
+  "frozen_protocol": "experiments/label_010_v1/grounded_ablation_protocol.json",
+  "best_validation_step": 1500,
+  "validation_improvement_minimum_delta": 1e-05,
+  "validation_history": [
+    {
+      "step": 500,
+      "validation_total": 0.06901028752326965,
+      "validation_epsilon": 0.062348634004592896,
+      "validation_geometry": 0.0,
+      "validation_range": 0.03690146654844284,
+      "validation_speckle": 0.09633155912160873,
+      "improved": true,
+      "stale_validations": 0
+    },
+    {
+      "step": 1000,
+      "validation_total": 0.06590889394283295,
+      "validation_epsilon": 0.05934339761734009,
+      "validation_geometry": 0.0,
+      "validation_range": 0.03684064373373985,
+      "validation_speckle": 0.09446912258863449,
+      "improved": true,
+      "stale_validations": 0
+    },
+    {
+      "step": 1500,
+      "validation_total": 0.06440384685993195,
+      "validation_epsilon": 0.05754170939326286,
+      "validation_geometry": 0.0,
+      "validation_range": 0.03881180286407471,
+      "validation_speckle": 0.09843085706233978,
+      "improved": true,
+      "stale_validations": 0
+    },
+    {
+      "step": 2000,
+      "validation_total": 0.0647566169500351,
+      "validation_epsilon": 0.057856008410453796,
+      "validation_geometry": 0.0,
+      "validation_range": 0.04226343706250191,
+      "validation_speckle": 0.09574849903583527,
+      "improved": false,
+      "stale_validations": 1
+    },
+    {
+      "step": 2500,
+      "validation_total": 0.06446667015552521,
+      "validation_epsilon": 0.057396698743104935,
+      "validation_geometry": 0.0,
+      "validation_range": 0.040335513651371,
+      "validation_speckle": 0.10106389969587326,
+      "improved": false,
+      "stale_validations": 2
+    }
+  ],
+  "latest_checkpoint": "models/diffusion/ablations/no_geometric/label_010_v1/checkpoint_latest.pt",
+  "latest_checkpoint_sha256": "e13ad05f94226f1cf3617430e23b35c64b3b5603f0f7013a18e98fa96a1e80f3",
+  "best_model_weights": "models/diffusion/ablations/no_geometric/label_010_v1/best_model/diffusion_pytorch_model.safetensors",
+  "best_model_sha256": "8114b2adfebf184e35775226e65ac682534c3e189e8d7bee9d489a2da546a046",
+  "best_model_class_embeddings": 4,
+  "checkpoint_reload_and_step_match": "pass",
+  "validation_patience_replay": "pass",
+  "disabled_loss_zero_checks": "pass"
+}

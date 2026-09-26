@@ -1,0 +1,26 @@
+% Replace the URL and commit placeholder only after the repository is published.
+\chapter{Code Availability and Reproducibility}
+\label{app:code}
+
+The complete implementation developed for this dissertation is available at:
+
+\begin{center}
+\url{https://github.com/USERNAME/REPOSITORY}
+\end{center}
+
+The version corresponding to the reported results is identified by release
+\texttt{v1.0.0} and commit \texttt{COMMIT-HASH}. The repository contains the
+source code, executed-configuration summaries, frozen experiment registries,
+dataset split identifiers, provenance manifests, training records and
+lightweight evaluation evidence.
+
+The acquired SCTD images and annotations are not redistributed. Instructions
+for placing an authorised copy of the dataset are provided in
+\path{DATA.md}. Model checkpoints and generated image collections are also
+excluded because of their size and dataset-redistribution considerations.
+
+The principal implementation components are documented in
+\path{CODE_MAP.md}. The complete executed pipeline is in \path{src/}; pilot
+utilities and the rejected provisional splitting method are explicitly
+separated under \path{archive/}.
+

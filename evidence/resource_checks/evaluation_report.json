@@ -1,0 +1,49 @@
+{
+  "status": "pass",
+  "purpose": "paired validation evidence for a shared diffusion sampling choice",
+  "model": "models/diffusion/standard/label_010_v1/best_model",
+  "model_sha256": "857479a72fd1e3447bfae56d21ab087220a8ade85c1444aa92acf20682dc459e",
+  "training_report_sha256": "03eb70155783fcb0d445843ec0c05aa89253b50e963853b4d9b460fabc8b3788",
+  "validation_source": "real group-aware validation partition only",
+  "fixed_validation_samples": 12,
+  "class_allocation": {
+    "aircraft": 4,
+    "human": 4,
+    "ship": 4
+  },
+  "fixed_validation_ids": [
+    "000007",
+    "000013",
+    "000026",
+    "000058",
+    "000092",
+    "000094",
+    "000100",
+    "000114",
+    "000139",
+    "000149",
+    "000154",
+    "000155"
+  ],
+  "common_random_numbers": true,
+  "inference_steps": 50,
+  "guidance_scale_candidates": [
+    1.0,
+    2.0,
+    3.0,
+    5.0
+  ],
+  "strength_candidates": [
+    0.3,
+    0.45,
+    0.6
+  ],
+  "configurations_evaluated": 12,
+  "automatic_selection_performed": false,
+  "selection_requirements": [
+    "all validation candidates pass the unchanged annotation-transfer gates",
+    "zero exact pixel copies",
+    "review paired class previews and numeric preservation/variation trade-off",
+    "freeze one setting identically for standard and grounded diffusion"
+  ]
+}

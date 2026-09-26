@@ -1,0 +1,53 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Local caches and application state
+.cache/
+.config/
+.tmp/
+tmp/
+runs/
+wandb/
+
+# Dataset material (not redistributed)
+data/raw/
+data/cleaned/
+data/processed/
+data/**/*.jpg
+data/**/*.jpeg
+data/**/*.png
+data/**/*.bmp
+data/**/*.tif
+data/**/*.tiff
+data/**/*.xml
+
+# Generated images and copied detector datasets
+synthetic/
+
+# Model weights and checkpoints
+models/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+# Large numerical caches
+*.npy
+*.npz
+
+# Runtime output; curated lightweight evidence belongs in evidence/
+results/
+
+# Logs and local editor/OS files
+*.log
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+

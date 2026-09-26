@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "torch": "2.7.0+cu128",
+  "precision": "AMP fp16 with FP32 parameters and GradScaler",
+  "gradient_checkpointing": true,
+  "batch_size": 1,
+  "image_size": 256,
+  "loss": 0.008243149146437645,
+  "gradient_norm_before_clip": 0.41264885663986206,
+  "peak_allocated_mb": 2224.88037109375,
+  "peak_reserved_mb": 2238.0,
+  "total_parameters": 113675267,
+  "trainable_parameters": 113675267,
+  "transfer_missing_keys": [
+    "class_embedding.weight"
+  ],
+  "transfer_unexpected_keys": []
+}

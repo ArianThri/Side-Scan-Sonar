@@ -1,0 +1,50 @@
+schema_version: 2
+status: executed_experiment_summary
+
+project:
+  seed: 42
+  acquired_dataset_images: 357
+  acquired_dataset_annotations: 357
+  acquired_dataset_objects: 363
+  completed_detector_label_level_percent: 10
+  prepared_but_not_executed_label_levels_percent: [25, 50, 100]
+
+data:
+  raw: data/raw/SCTD
+  fixed_split: data/splits/group_aware_v1
+  limited_subsets: data/splits/limited_labels_group_aware_v1
+  yolo: data/processed/yolo_sctd_group_aware_v1
+  real_validation_and_test_only: true
+  split_counts: {train: 249, validation: 54, test: 54}
+  cross_partition_exact_duplicate_groups: 0
+
+primary_experiment:
+  id: label_010_v1
+  real_training_images: 26
+  real_training_class_counts: {aircraft: 4, human: 3, ship: 19}
+  conditions:
+    - real_only
+    - traditional
+    - gan
+    - standard_diffusion
+    - grounded_diffusion
+  synthetic_images_per_augmented_condition: 26
+
+controls:
+  same_real_subset_per_condition: true
+  equal_synthetic_budget: true
+  synthetic_ratio_to_real: 1.0
+  same_detector_initial_weights: true
+  same_detector_hyperparameters: true
+  same_real_validation_and_test_sets: true
+
+ablation:
+  conditions: [full, no_acoustic, no_geometric, neither]
+  common_random_numbers: true
+  candidate_seed_rule: 40042_plus_zero_based_source_index
+
+evaluation:
+  synthetic: [FID, MMD, LPIPS, aligned_SSIM, aligned_PSNR]
+  detection: [precision, recall, mAP50, mAP50_95]
+  per_class: [aircraft, human, ship]
+

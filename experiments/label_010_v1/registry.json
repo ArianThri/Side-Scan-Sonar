@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-08-15T21:41:16.454650+00:00",
+  "experiment": "label_010_v1",
+  "label_level_percent": 10,
+  "seed": 42,
+  "real_training_images": 26,
+  "class_counts": {
+    "aircraft": 4,
+    "human": 3,
+    "ship": 19
+  },
+  "synthetic_ratio_to_real": 1.0,
+  "synthetic_images_per_method": 26,
+  "methods": [
+    "traditional",
+    "gan",
+    "standard_diffusion",
+    "grounded_diffusion"
+  ],
+  "equal_budget_verified": true,
+  "real_validation_and_test_only": true,
+  "input_sha256": {
+    "data/splits/group_aware_v1/split_manifest.csv": "227cd787388846ed8d5bbd718ca2710b0d743f88ae2e0b0fbdc135374170b05d",
+    "data/splits/limited_labels_group_aware_v1/train_010.txt": "66b3a2a8aded191b039dcc8ecd13adefdf783af192d53c7f359ad9fe47b12828",
+    "data/processed/generative_256_v1/manifest.csv": "d08c94b308bf44d05f9d568483b6948b1d716e25205d4ed69b9edbc14ecc8dae",
+    "data/processed/generative_256_v1/preprocessing_config.json": "9655083df7e6679f2cc6baad7f0ae7d09a03dc196227d55845771657bbeaf69b",
+    "configs/experiments.yaml": "d809d25fd94be9bdc60fc1229285172bfef0792765a0ca6de5e4cbe52ab575f1",
+    "configs/models.yaml": "9d5a4f008684a6cdf84870d6b0c473f61de0a7335566ddc19a3107d097f89d41"
+  },
+  "candidate_registry_sha256": "df18a9dd9ada7ff17143278a851860ff08741d74502076be167928a9b6dfe7bc",
+  "note": "First controlled full-run gate. Later label levels require separate registries."
+}
