@@ -2,9 +2,9 @@
 
 Before making the repository public:
 
-- [ ] Choose a repository name and replace the URL placeholders.
-- [ ] Initialise Git and make the publication commit.
-- [ ] Record the immutable commit hash in the dissertation appendix.
+- [x] Choose a repository name and replace the URL placeholders.
+- [x] Initialise Git and make the publication commit.
+- [x] Record the immutable implementation commit hash in the appendix fragment.
 - [ ] Create release/tag `v1.0.0` from that commit.
 - [ ] Choose a software licence with the supervisor/university and add `LICENSE`.
 - [ ] Add author/ORCID metadata and then create `CITATION.cff`.
@@ -13,4 +13,3 @@ Before making the repository public:
 - [ ] Run the source compilation and JSON/YAML validation checks from `README.md`.
 - [ ] Change the dissertation appendices to unique letters: code, ethics, AI declaration.
 - [ ] Clarify that research-model outputs are not external AI-generated evidence.
-
